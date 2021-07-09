@@ -1,0 +1,68 @@
+>!DOCTYPE html>
+<html class="no-js" lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% block stylesheets%}
+
+			<link
+			rel="icon" type="image/png" sizes="16x16" href="{{asset("images/favicon.png")}}">
+			<!-- Pignose Calender -->
+			<link
+			href="{{asset("assets/plugins/pg-calendar/css/pignose.calendar.min.css")}}" rel="stylesheet">
+			<!-- Chartist -->
+			<link rel="stylesheet" href="{{asset("assets/plugins/chartist/css/chartist.min.css")}}">
+			<link
+			rel="stylesheet" href="{{asset("assets/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css")}}">
+			<!-- Custom Stylesheet -->
+			<link href="{{asset("assets/css/style.css")}}" rel="stylesheet">
+
+		{% endblock %}
+	</head>
+	<body>
+		{% include('./header.html.twig') %}
+
+
+		{% block body %}
+			<div class="nk-sidebar">
+				<div class="nk-nav-scroll"></div>
+			</div>
+		{% endblock %}
+
+
+		{% include('./footer.html.twig') %}
+
+		{% block javascripts %}
+			<script src="{{asset("assets/plugins/common/common.min.js")}}"></script>
+			<script src="{{asset("assets/js/custom.min.js")}}"></script>
+			<script src="{{asset("assets/js/settings.js")}}"></script>
+			<script src="{{asset("assets/js/gleek.js")}}"></script>
+			<script src="{{asset("assets/js/styleSwitcher.js")}}"></script>
+
+			<!-- Chartjs -->
+			<script src="{{asset("assets/plugins/chart.js/Chart.bundle.min.js")}}"></script>
+			<!-- Circle progress -->
+			<script src="{{asset("assets/plugins/circle-progress/circle-progress.min.js")}}"></script>
+			<script src="{{asset("assets/plugins/d3v3/index.js")}}"></script>
+			<script src="{{asset("assets/plugins/topojson/topojson.min.js")}}"></script>
+			<script src="{{asset("assets/plugins/datamaps/datamaps.world.min.js")}}"></script>
+			<!-- Morrisjs -->
+			<script src="{{asset("assets/plugins/raphael/raphael.min.js")}}"></script>
+			<script src="{{asset("assets/plugins/morris/morris.min.js")}}"></script>
+			<!-- Pignose Calender -->
+			<script src="{{asset("assets/plugins/moment/moment.min.js")}}"></script>
+			<script src="{{asset("assets/plugins/pg-calendar/js/pignose.calendar.min.js")}}"></script>
+			<!-- ChartistJS -->
+			<script src="{{asset("assets/plugins/chartist/js/chartist.min.js")}}"></script>
+			<script src="{{asset("assets/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js")}}"></script>
+			<script src="{{asset("assets/js/dashboard/dashboard-1.js")}}"></script>
+		{% endblock %}
+
+	</body>
+</html>
