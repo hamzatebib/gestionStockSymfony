@@ -8,11 +8,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProduitController extends AbstractController
 {
     /**
+     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_AGENT")
      * @Route("/listeP", name="listeproduit")
      */
     public function index(): Response
@@ -26,6 +29,8 @@ class ProduitController extends AbstractController
         );
     }
     /**
+     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_AGENT")
      * @Route("/produit/new", name="produit_new")
      * @param Request $request
      * @return Response
@@ -49,6 +54,8 @@ class ProduitController extends AbstractController
         ]);
     }
     /**
+     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_AGENT")
      * @Route("/modify-produit/{id}", name="modify_produit")
      */
     public function modifyproduit(Request $request, int $id): Response
@@ -70,6 +77,8 @@ class ProduitController extends AbstractController
         ]);
     }
     /**
+     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_AGENT")
      * @Route("/produit/{id}/delete", name="produit_delete")
      * @param Produit $produit
      * @return RedirectResponse
@@ -83,6 +92,8 @@ class ProduitController extends AbstractController
         return $this->redirectToRoute("listeproduit");
     }
     /**
+     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_AGENT")
      * @Route("/{id}/show", name="produit_show")
      * @param produit $produit
      * @return Response

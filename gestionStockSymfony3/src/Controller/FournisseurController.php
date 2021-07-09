@@ -8,11 +8,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class FournisseurController extends AbstractController
 {
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/listeF", name="listeFournisseur")
      */
     public function index(): Response
@@ -29,6 +31,7 @@ class FournisseurController extends AbstractController
 
 
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/fournisseur/new", name="fournisseur_new")
      * @param Request $request
      * @return Response
@@ -52,6 +55,7 @@ class FournisseurController extends AbstractController
         ]);
     }
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/modify-fournisseur/{id}", name="modify_fournisseur")
      */
     public function modifyfournisseur(Request $request, int $id): Response
@@ -73,6 +77,7 @@ class FournisseurController extends AbstractController
         ]);
     }
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/fournisseur/{id}/delete", name="fournisseur_delete")
      * @param fournisseur $fournisseur
      * @return RedirectResponse
@@ -86,6 +91,7 @@ class FournisseurController extends AbstractController
         return $this->redirectToRoute("listeFournisseur");
     }
     /**
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/{id}/show", name="fournisseur_show")
      * @param fournisseur $fournisseur
      * @return Response
